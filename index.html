@@ -224,6 +224,74 @@ kbd{font-family:var(--f-num);font-size:12px;background:var(--slot);border:1px so
   .fire{min-width:92px;max-width:none;height:48px;font-size:18px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* analysis screen */
+.ana{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:16px;background:rgba(14,6,12,.74)}
+.ana-sheet{width:min(1000px,100%);max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;background:linear-gradient(180deg,#2a1226,#1d0c19 60%);border:2px solid var(--accent);border-radius:14px;padding:16px 18px 22px;display:flex;flex-direction:column;gap:12px;box-shadow:0 24px 60px rgba(0,0,0,.55);color:var(--cream)}
+.ana-sheet>*{flex-shrink:0}
+.ana-top{display:flex;align-items:flex-start;gap:12px}
+.ana-top h2{font-family:var(--f-display);font-weight:400;font-size:28px;margin:0;color:var(--accent);text-shadow:0 2px 0 #5b1d0b}
+.ana-top p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.ana-x{margin-left:auto;flex:none}
+.ana-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;position:sticky;top:-16px;z-index:2;background:#27112a;margin-inline:-4px;padding-inline:4px;padding-top:6px}
+.ana-tabs button{flex:none;background:rgba(0,0,0,.28);border:2px solid transparent;border-radius:99px;padding:6px 13px;font-weight:600;font-size:13px;color:var(--cream)}
+.ana-tabs button[aria-selected="true"]{border-color:var(--accent);background:rgba(255,209,90,.14);color:#fff3dd}
+.ana-pane{display:flex;flex-direction:column;gap:12px}
+.ana-lead{margin:0;max-width:72ch;line-height:1.6}
+.ana-lead b{color:#fff3dd}
+.ana-h{margin:4px 0 0;font-family:var(--f-display);font-weight:400;font-size:19px;color:var(--accent)}
+.ana-nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:8px}
+.ana-nums div{background:rgba(0,0,0,.26);border-radius:10px;padding:8px 11px;min-width:0}
+.ana-nums b{display:block;font-family:var(--f-num);font-size:22px;color:#fff3dd;font-variant-numeric:tabular-nums;line-height:1.2}
+.ana-nums span{font-size:12px;color:var(--muted)}
+.node{background:rgba(0,0,0,.3);border:1px solid rgba(255,209,90,.28);border-radius:10px;padding:8px 11px;min-width:0}
+.node b{display:block;color:var(--accent);font-size:14px}
+.node span{font-size:12px;color:var(--muted)}
+.node.hot{border:2px solid var(--hot);background:rgba(255,138,42,.1)}
+.arch{display:flex;flex-direction:column;gap:6px}
+.arch .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.arch .loop{border:2px dashed rgba(255,209,90,.45);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.arch .loop h4{margin:0;font-size:13px;color:#fff3dd}
+.down{text-align:center;color:var(--accent);font-size:15px;line-height:1}
+.chain{display:flex;align-items:stretch;gap:6px;flex-wrap:wrap}
+.chain .node{flex:1 1 160px}
+.chain>i{align-self:center;color:var(--accent);font-style:normal;font-size:20px}
+.demo{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:14px;align-items:start}
+.demo canvas,.maskwrap canvas{display:block;width:100%;max-width:100%;height:auto;border-radius:10px;background:#140810;box-shadow:0 0 0 2px rgba(255,209,90,.28)}
+.ctrls{display:flex;flex-direction:column;gap:9px;min-width:0}
+.ctrl{display:grid;grid-template-columns:40px minmax(0,1fr) 46px;gap:8px;align-items:center;font-size:13px}
+.ctrl output{font-family:var(--f-num);text-align:right;font-variant-numeric:tabular-nums}
+.ctrl input[type=range]{width:100%;accent-color:#ffd15a}
+.ctrl select{grid-column:2/4;background:var(--slot);color:var(--cream);border:2px solid var(--line);border-radius:8px;padding:5px 8px;font:inherit}
+.chk{display:flex;align-items:center;gap:8px;font-size:13px}
+.chk input{accent-color:#ffd15a;width:16px;height:16px}
+.readout{font-size:13px;line-height:1.6;background:rgba(0,0,0,.26);border-radius:8px;padding:7px 10px}
+.readout b{color:#fff3dd;font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.formula{font-family:var(--f-num);font-size:12px;background:rgba(0,0,0,.32);border-radius:8px;padding:8px 10px;line-height:1.65}
+.legend{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:18px;height:4px;border-radius:2px;margin-right:7px;vertical-align:middle}
+.tscroll{overflow-x:auto}
+.atable{width:100%;border-collapse:collapse;font-size:13px;min-width:420px}
+.atable th{color:var(--muted);font-weight:600;font-size:12px}
+.atable th,.atable td{padding:6px 9px;border-bottom:1px solid rgba(255,209,90,.15);text-align:left}
+.atable td.n{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.atable code{font-family:var(--f-num);font-size:12px;color:#fff3dd}
+.cycle svg{display:block;width:100%;max-width:660px;height:auto;margin-inline:auto}
+.cycle svg text{font-family:'IBM Plex Sans KR','Apple SD Gothic Neo',sans-serif;font-weight:700}
+.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:5px;font-size:13px;line-height:1.55;max-width:80ch}
+.steps b{color:var(--accent)}
+.bul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:13px;line-height:1.5;color:var(--cream)}
+.cols3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px 20px}
+.maskwrap{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.maskwrap canvas{cursor:crosshair;touch-action:manipulation}
+.note{font-size:12px;color:var(--muted);margin:0}
+#anaBtn svg{width:16px;height:16px}
+@media (max-width:720px){
+  .demo{grid-template-columns:minmax(0,1fr)}
+  .ana{padding:0}
+  .ana-sheet{max-height:100dvh;height:100dvh;border-radius:0;border-width:0;padding:12px 12px calc(24px + env(safe-area-inset-bottom,0px))}
+  .ana-tabs{top:-12px}
+  .ana-top h2{font-size:24px}
+}
 </style>
 
 </head>
@@ -233,6 +301,7 @@ kbd{font-family:var(--f-num);font-size:12px;background:var(--slot);border:1px so
   <header>
     <h1 id="hTitle" hidden>포탄 언덕 <small>각도·파워·바람으로 겨루는 턴제 포격전</small></h1>
     <div class="hbtns">
+      <button class="btn" id="anaBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="6" rx="1.5"/><rect x="14" y="3" width="7" height="6" rx="1.5"/><rect x="8.5" y="15" width="7" height="6" rx="1.5"/><path d="M6.5 9v2.5h11V9M12 11.5V15"/></svg><span class="lt">분석</span></button>
       <button class="btn" id="musBtn" type="button" aria-pressed="true">음악 켜짐</button>
       <button class="btn" id="sndBtn" type="button" aria-pressed="true">효과음 켜짐</button>
       <button class="btn" id="backBtn" type="button" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/><path d="M9 12h11"/></svg><span class="lt">탱크 다시 고르기</span></button>
@@ -321,6 +390,186 @@ kbd{font-family:var(--f-num);font-size:12px;background:var(--slot);border:1px so
   </section>
 </div>
 
+<div class="ana" id="ana" hidden role="dialog" aria-modal="true" aria-labelledby="anaTitle">
+  <div class="ana-sheet">
+    <div class="ana-top">
+      <div><h2 id="anaTitle">포탄 언덕 분석</h2><p>이 게임이 어떤 구조와 원리로 돌아가는지 그림으로 정리했어요.</p></div>
+      <button class="btn ana-x" id="anaClose" type="button">닫기</button>
+    </div>
+    <div class="ana-tabs" role="tablist" id="anaTabs">
+      <button type="button" role="tab" data-p="arch" aria-selected="true">전체 구조</button>
+      <button type="button" role="tab" data-p="turn" aria-selected="false">한 턴의 흐름</button>
+      <button type="button" role="tab" data-p="phys" aria-selected="false">포탄 물리</button>
+      <button type="button" role="tab" data-p="ai" aria-selected="false">CPU 두뇌</button>
+      <button type="button" role="tab" data-p="world" aria-selected="false">지형·카메라·소리</button>
+      <button type="button" role="tab" data-p="deploy" aria-selected="false">데이터·배포</button>
+    </div>
+
+    <section class="ana-pane" data-p="arch">
+      <p class="ana-lead">포탄 언덕은 <b>index.html 파일 하나</b>로 된 웹게임이에요. 서버 없이 브라우저 안에서 1/60초마다 "상태 계산 → 화면 그리기"를 반복해요.</p>
+      <div class="ana-nums">
+        <div><b>10</b><span>탱크</span></div>
+        <div><b>20</b><span>무기 (탱크당 2개)</span></div>
+        <div><b>10</b><span>맵</span></div>
+        <div><b>980,000</b><span>지형 칸 (1400×700)</span></div>
+        <div><b>1,023</b><span>CPU가 한 턴에 해보는 가상 사격 (최대)</span></div>
+        <div><b>0</b><span>오디오 파일 (소리는 모두 실시간 합성)</span></div>
+      </div>
+      <div class="arch">
+        <div class="row"><div class="node"><b>입력</b><span>키보드 ←→↑↓·Space, 화면 버튼, 전장 끌기·미니맵 누르기</span></div></div>
+        <div class="down" aria-hidden="true">▼</div>
+        <div class="loop">
+          <h4>게임 루프 · 초당 60번 계산</h4>
+          <div class="row">
+            <div class="node"><b>턴 관리</b><span>차례 순서, 바람, 30초 제한, 승패</span></div>
+            <div class="node"><b>CPU 두뇌</b><span>가상 사격을 수백 번 해보고 각도·파워 결정</span></div>
+            <div class="node"><b>카메라</b><span>조준 확대, 포탄 추적, 끌어서 둘러보기</span></div>
+          </div>
+          <div class="row">
+            <div class="node hot"><b>포탄 물리</b><span>중력 + 바람 + 탄 종류별 규칙</span></div>
+            <div class="node hot"><b>지형 마스크</b><span>칸마다 땅(1)/빈칸(0), 폭발하면 지워짐</span></div>
+            <div class="node"><b>연출</b><span>파티클·충격파·화면 흔들림·슬로모션</span></div>
+          </div>
+        </div>
+        <div class="down" aria-hidden="true">▼</div>
+        <div class="row">
+          <div class="node"><b>전장 그림</b><span>Canvas 2D에 매 프레임 다시 그림</span></div>
+          <div class="node"><b>정보판</b><span>HTML로 각도·파워·무기·시간 표시</span></div>
+          <div class="node"><b>소리</b><span>Web Audio로 효과음·음악을 즉석 합성</span></div>
+          <div class="node"><b>브라우저 저장소</b><span>탱크 선택·맵·소리 설정을 기억</span></div>
+        </div>
+      </div>
+      <p class="note">주황 테두리 두 칸이 게임의 핵심 원리예요. 탭을 넘기면 직접 조작해 볼 수 있어요.</p>
+    </section>
+
+    <section class="ana-pane" data-p="turn" hidden>
+      <p class="ana-lead">한 판은 아래 7단계를 승자가 한 명 남을 때까지 반복해요.</p>
+      <div class="cycle" id="anaCycle"></div>
+      <ol class="steps">
+        <li><b>차례 시작</b> · 바람을 −10~10에서 새로 뽑고 맵 배율을 곱해요. 이동 연료를 채우고 특수탄 대기를 1 줄여요.</li>
+        <li><b>이동·조준</b> · 연료만큼 움직이고, 탱크마다 정해진 범위 안에서 각도를 바꿔요.</li>
+        <li><b>파워 모아 발사</b> · 누르는 동안 파워가 프레임마다 1.2씩 올라가요. 100이 되면 자동으로 발사돼요.</li>
+        <li><b>포탄 비행</b> · 매 프레임 물리를 계산하고 분열·추적·굴림·드릴 같은 특수 효과를 처리해요.</li>
+        <li><b>폭발·피해</b> · 지형을 원 모양으로 지우고, 폭발 중심에 가까울수록 큰 피해를 줘요. 가장자리도 35%는 들어가요.</li>
+        <li><b>정착 대기</b> · 포탄·번개·낙하가 모두 끝난 뒤 50프레임(약 0.8초) 조용하면 넘어가요. 50칸 넘게 떨어진 탱크는 낙하 피해를 받아요.</li>
+        <li><b>승패 확인</b> · 살아남은 탱크가 1대 이하면 끝나고, 아니면 다음 탱크 차례예요.</li>
+      </ol>
+    </section>
+
+    <section class="ana-pane" data-p="phys" hidden>
+      <p class="ana-lead">포탄은 매 프레임 속도에 바람과 중력을 더해 위치를 옮겨요. 막대를 움직여 궤적이 어떻게 바뀌는지 보세요.</p>
+      <div class="demo">
+        <canvas id="apCv" width="1400" height="600" aria-label="포탄 궤적 실험"></canvas>
+        <div class="ctrls">
+          <div class="ctrl"><label for="apAng">각도</label><input type="range" id="apAng" min="0" max="85" value="45"><output id="apAngO"></output></div>
+          <div class="ctrl"><label for="apPow">파워</label><input type="range" id="apPow" min="10" max="100" value="70"><output id="apPowO"></output></div>
+          <div class="ctrl"><label for="apWind">바람</label><input type="range" id="apWind" min="-12" max="12" value="0"><output id="apWindO"></output></div>
+          <div class="ctrl"><label for="apType">탄</label><select id="apType"><option value="0">일반탄</option><option value="1">광자탄 (프리즘)</option><option value="2">거대탄 (거포)</option><option value="3">메가톤 (거포)</option></select></div>
+          <label class="chk" for="apMoon"><input type="checkbox" id="apMoon"> 달 표면 중력 (×0.55)</label>
+          <div class="readout" id="apOut"></div>
+          <div class="formula">처음 속도 = 17 × 파워%<br>매 프레임: 가로 속도 += 바람 × 0.0045 × 바람 계수<br>　　　　　세로 속도 += 0.22 × 중력 계수<br>　　　　　위치 += 속도</div>
+        </div>
+      </div>
+      <div class="tscroll"><table class="atable">
+        <thead><tr><th>탄 종류</th><th>중력 계수</th><th>바람 계수</th><th>속도 계수</th><th>특징</th></tr></thead>
+        <tbody>
+          <tr><td>일반탄 (대부분)</td><td class="n">1</td><td class="n">1</td><td class="n">1</td><td>기본 포물선</td></tr>
+          <tr><td>광자탄</td><td class="n">0.55</td><td class="n">0.25</td><td class="n">0.82</td><td>느리고 곧게, 바람에 강함</td></tr>
+          <tr><td>거대탄</td><td class="n">1.15</td><td class="n">0.5</td><td class="n">1</td><td>무겁게 떨어짐</td></tr>
+          <tr><td>메가톤</td><td class="n">1.2</td><td class="n">0.4</td><td class="n">1</td><td>폭발 반경 84칸</td></tr>
+          <tr><td>추적탄</td><td class="n">0.12</td><td class="n">1</td><td class="n">1</td><td>최고점 뒤 가까운 적 쪽으로 방향 보정</td></tr>
+          <tr><td>반사광선</td><td class="n">0</td><td class="n">0</td><td class="n">—</td><td>직선, 벽에서 2번 반사</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section class="ana-pane" data-p="ai" hidden>
+      <p class="ana-lead">CPU는 학습형 인공지능이 아니에요. <b>각도와 파워를 조합해 가상으로 수백 번 쏴 보고</b>, 목표에 가장 가깝게 떨어지는 한 발을 고른 뒤 난이도만큼 일부러 빗나가게 해요.</p>
+      <div class="demo">
+        <canvas id="aiCv" width="1400" height="600" aria-label="CPU 가상 사격"></canvas>
+        <div class="ctrls">
+          <div class="opt"><label>난이도</label><div class="seg" id="aiDiffSeg"></div></div>
+          <button class="btn" id="aiAgain" type="button">새 상황으로 다시 계산</button>
+          <div class="readout" id="aiOut"></div>
+          <ul class="legend">
+            <li><i style="background:rgba(255,233,199,.5)"></i>가상 사격 궤적</li>
+            <li><i style="background:#ffd15a"></i>가장 가까운 한 발</li>
+            <li><i style="background:#ff8a2a"></i>실제로 쏜 탄 (오차 적용)</li>
+          </ul>
+        </div>
+      </div>
+      <ol class="steps">
+        <li><b>목표 고르기</b> · 가까운 적, 체력이 낮은 적을 우선하고 약간의 무작위를 섞어요.</li>
+        <li><b>무기 고르기</b> · 특수탄이 준비됐으면 55% 확률로 써요. 정원사는 체력이 55% 아래면 치유포자부터 써요.</li>
+        <li><b>가상 사격</b> · 각도를 2°씩, 파워를 3씩 바꿔 가며 지금 바람으로 궤적을 계산해요. 철갑이는 31×31 = 961발이에요.</li>
+        <li><b>자폭 방지</b> · 내 탱크 70칸 안에 떨어지는 조합은 큰 벌점을 줘서 빼요.</li>
+        <li><b>사람다운 실수</b> · 고른 각도와 파워에 난이도만큼 무작위 오차를 더해 쏴요.</li>
+      </ol>
+      <div class="tscroll"><table class="atable">
+        <thead><tr><th>난이도</th><th>각도 오차</th><th>파워 오차</th></tr></thead>
+        <tbody><tr><td>쉬움</td><td class="n">±6°</td><td class="n">±8</td></tr><tr><td>보통</td><td class="n">±3°</td><td class="n">±4</td></tr><tr><td>어려움</td><td class="n">±1°</td><td class="n">±1</td></tr></tbody>
+      </table></div>
+      <p class="note">가상 사격은 기본 궤적만 계산해요. 분열·추적·굴림 같은 특수 효과는 계산에 넣지 않고, 반사광선과 순간이동은 CPU가 쓰지 않아요.</p>
+    </section>
+
+    <section class="ana-pane" data-p="world" hidden>
+      <h3 class="ana-h">지형 마스크</h3>
+      <p class="ana-lead">전장은 1400×700칸짜리 표예요. 칸마다 땅이면 1, 비었으면 0이에요. 폭발하면 원 안의 칸을 0으로 바꾸고, 탱크 아래가 비면 떨어져요. 아래 그림을 눌러 직접 폭발시켜 보세요.</p>
+      <div class="maskwrap"><canvas id="mkCv" width="1400" height="560" aria-label="지형 마스크 실험"></canvas>
+        <button class="btn" id="mkReset" type="button">지형 되돌리기</button></div>
+      <div class="cols3">
+        <div>
+          <h3 class="ana-h">카메라</h3>
+          <ul class="bul">
+            <li>조준할 때는 내 탱크를 1.35배로 확대해요.</li>
+            <li>포탄이 날면 따라가고, 적 근처를 지나면 슬로모션과 함께 1.6배로 다가가요.</li>
+            <li>폭발 지점에 잠깐 머문 뒤 다음 차례로 넘어가요.</li>
+            <li>휴대폰 세로 화면에서는 보이는 폭을 좁혀 전장을 세로로 길게 보여줘요.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="ana-h">소리</h3>
+          <ul class="bul">
+            <li>소리 파일 없이 발진기와 잡음을 섞어 즉석에서 만들어요.</li>
+            <li>폭발음은 폭발 반경에 따라 길이와 낮은 소리가 커져요.</li>
+            <li>음악은 8분음표 단위로 음을 예약하는 작은 시퀀서예요. 선택 화면 78 BPM, 전투 128 BPM.</li>
+            <li>CPU끼리 남으면 음악에 저음만 남기는 필터를 걸어요.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="ana-h">연출</h3>
+          <ul class="bul">
+            <li>입자는 최대 1,400개까지만 유지해요.</li>
+            <li>큰 폭발은 몇 프레임 멈춤, 섬광, 화면 흔들림을 더해요.</li>
+            <li>"직격!"은 피해 30 이상, "격파!"는 탱크를 쓰러뜨렸을 때 떠요.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="ana-pane" data-p="deploy" hidden>
+      <h3 class="ana-h">만들고 배포하는 흐름</h3>
+      <div class="chain">
+        <div class="node"><b>Claude</b><span>요청을 받아 코드를 고치고 브라우저로 검사</span></div><i aria-hidden="true">→</i>
+        <div class="node"><b>GitHub</b><span>kwonjisung/potan-hill 에 변경 기록 보관</span></div><i aria-hidden="true">→</i>
+        <div class="node"><b>Netlify</b><span>새 기록이 올라오면 자동 배포, 약 1분</span></div><i aria-hidden="true">→</i>
+        <div class="node hot"><b>내 브라우저</b><span>index.html <span id="anaSize"></span>을 한 번 받아 실행</span></div>
+      </div>
+      <h3 class="ana-h">게임 중 오가는 데이터</h3>
+      <div class="tscroll"><table class="atable">
+        <thead><tr><th>무엇</th><th>어디로</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td>글꼴</td><td>Google Fonts → 내 기기</td><td>처음 열 때 글꼴 4종 내려받기</td></tr>
+          <tr><td>게임 계산</td><td>내 기기 안</td><td>물리, CPU 판단, 그림, 소리 모두 기기에서 처리</td></tr>
+          <tr><td>외부 AI</td><td>없음</td><td>게임 실행 중에는 Claude나 다른 AI를 부르지 않아요</td></tr>
+          <tr><td>플레이 기록</td><td>없음</td><td>점수나 기록을 어디로도 보내지 않아요</td></tr>
+          <tr><td>설정</td><td>이 브라우저 저장소</td><td><code>potan-setup</code> 탱크·자리·CPU 실력·맵, <code>potan-audio</code> 음악·효과음, <code>potan-panned</code> 둘러보기 안내</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Claude는 만들고 고치는 단계에서만 쓰여요. 사이트에 올라간 게임은 혼자서 돌아가요.</p>
+    </section>
+  </div>
+</div>
 <div class="modal" id="quitModal" hidden role="dialog" aria-modal="true" aria-labelledby="quitTitle">
   <div class="mcard">
     <h2 id="quitTitle">게임을 종료하시겠습니까?</h2>
@@ -1637,6 +1886,160 @@ $('startBtn').onclick=startGame;$('againBtn').onclick=startGame;$('toSetupBtn').
   S.paused=true;for(const k in input)input[k]=false;chargeTone(-1);$('quitModal').hidden=false;$('quitNo').focus()};
 function closeQuit(){$('quitModal').hidden=true;for(const k in input)input[k]=false;S.needRelease=true;S.paused=false}
 $('quitNo').onclick=closeQuit;
+/* ---------------- analysis screen ---------------- */
+let anaPaused=false,anaCur='arch',aiRaf=0,aiDiffSel=1,aiScene=null,cycleBuilt=false;
+function openAna(){
+  if((S.phase==='aim'||S.phase==='flight')&&!S.paused){S.paused=true;anaPaused=true;for(const k in input)input[k]=false;chargeTone(-1)}
+  $('ana').hidden=false;anaShow(anaCur);
+  try{const kb=new Blob([document.documentElement.outerHTML]).size/1024;$('anaSize').textContent=`(약 ${Math.round(kb)}KB)`}catch(_){}
+  $('anaClose').focus();
+}
+function closeAna(){
+  $('ana').hidden=true;cancelAnimationFrame(aiRaf);
+  if(anaPaused){anaPaused=false;S.paused=false;S.needRelease=true;for(const k in input)input[k]=false}
+  $('anaBtn').focus();
+}
+function anaShow(p){
+  anaCur=p;
+  document.querySelectorAll('#anaTabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.p===p)));
+  document.querySelectorAll('.ana-pane').forEach(s=>s.hidden=s.dataset.p!==p);
+  if(p==='turn'&&!cycleBuilt)buildCycle();
+  if(p==='phys')drawPhys();
+  if(p==='ai')runAI(!aiScene);
+  if(p==='world')drawMask();
+}
+$('anaBtn').onclick=openAna;$('anaClose').onclick=closeAna;
+$('ana').addEventListener('click',e=>{if(e.target.id==='ana')closeAna()});
+document.querySelectorAll('#anaTabs button').forEach(b=>b.onclick=()=>anaShow(b.dataset.p));
+addEventListener('keydown',e=>{if(!$('ana').hidden&&e.key==='Escape')closeAna()});
+
+/* turn cycle diagram */
+function buildCycle(){
+  cycleBuilt=true;
+  const L=['차례 시작','이동·조준','파워 모아 발사','포탄 비행','폭발·피해','정착 대기','승패 확인'];
+  const N=L.length,cx=330,cy=222,rx=238,ry=162;
+  let s=`<svg viewBox="0 0 660 444" role="img" aria-label="한 턴의 7단계 순환 그림"><ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="none" stroke="#ffd15a" stroke-opacity=".45" stroke-width="2.5" stroke-dasharray="7 8"/>`;
+  for(let i=0;i<N;i++){const am=-Math.PI/2+(i+.5)*2*Math.PI/N,mx=cx+Math.cos(am)*rx,my=cy+Math.sin(am)*ry,rot=Math.atan2(Math.cos(am)*ry,-Math.sin(am)*rx)*180/Math.PI;
+    s+=`<path d="M-8,-7 L7,0 L-8,7 z" fill="#ffd15a" transform="translate(${mx.toFixed(1)},${my.toFixed(1)}) rotate(${rot.toFixed(1)})"/>`}
+  for(let i=0;i<N;i++){const a=-Math.PI/2+i*2*Math.PI/N,x=cx+Math.cos(a)*rx,y=cy+Math.sin(a)*ry,w=168,h=52,hot=i===3||i===4;
+    s+=`<g transform="translate(${x.toFixed(1)},${y.toFixed(1)})"><rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="12" fill="#2c1426" stroke="${hot?'#ff8a2a':'#ffd15a'}" stroke-opacity="${hot?1:.6}" stroke-width="${hot?3:2}"/>
+      <circle cx="${-w/2+24}" cy="0" r="15" fill="#ffd15a"/><text x="${-w/2+24}" y="6" text-anchor="middle" font-size="17" fill="#3a1206">${i+1}</text>
+      <text x="${-w/2+46}" y="6" font-size="17" fill="#fff3dd">${L[i]}</text></g>`}
+  s+=`<text x="${cx}" y="${cy-6}" text-anchor="middle" font-size="30" fill="#ffd15a">반복</text><text x="${cx}" y="${cy+24}" text-anchor="middle" font-size="15" fill="#dcb3a0">승자가 한 명 남을 때까지</text></svg>`;
+  $('anaCycle').innerHTML=s;
+}
+
+/* shared mini world for the demos (1400×600) */
+const AW=1400,AH=600,AG=.22;
+const aGround=x=>440+Math.sin(x*.006+.8)*42+Math.sin(x*.017)*14;
+function aScene(c){
+  let g=c.createLinearGradient(0,0,0,AH);g.addColorStop(0,'#2a112c');g.addColorStop(.55,'#7a2a3a');g.addColorStop(1,'#e0663f');c.fillStyle=g;c.fillRect(0,0,AW,AH);
+  c.strokeStyle='rgba(255,233,199,.07)';c.lineWidth=1;c.beginPath();for(let x=0;x<=AW;x+=100){c.moveTo(x,0);c.lineTo(x,AH)}for(let y=0;y<=AH;y+=100){c.moveTo(0,y);c.lineTo(AW,y)}c.stroke();
+  g=c.createLinearGradient(0,380,0,AH);g.addColorStop(0,'#3a1830');g.addColorStop(1,'#160913');c.fillStyle=g;
+  c.beginPath();c.moveTo(0,AH);for(let x=0;x<=AW;x+=6)c.lineTo(x,aGround(x));c.lineTo(AW,AH);c.closePath();c.fill();
+  c.strokeStyle='#ff9a4a';c.lineWidth=5;c.beginPath();for(let x=0;x<=AW;x+=6)x?c.lineTo(x,aGround(x)):c.moveTo(x,aGround(x));c.stroke();
+}
+function aSim(x0,y0,ang,pow,wind,gf=1,wf=1,spd=1,g=AG,facing=1){
+  const a=ang*Math.PI/180,v=VMAX*pow/100*spd;let x=x0,y=y0,vx=facing*Math.cos(a)*v,vy=-Math.sin(a)*v;const pts=[[x,y]];
+  for(let f=1;f<900;f++){vx+=wind*WIND_K*wf;vy+=g*gf;const n=Math.max(1,Math.ceil(Math.hypot(vx,vy)/3));
+    for(let i=0;i<n;i++){x+=vx/n;y+=vy/n;if(x<-60||x>AW+60)return{pts,hit:null,f};if(y>=aGround(x)){pts.push([x,y]);return{pts,hit:[x,y],f}}}
+    pts.push([x,y])}
+  return{pts,hit:null,f:900};
+}
+const TS=2.4;
+function aMuzzle(px,ang,td,facing=1){const gy=aGround(px),a=ang*Math.PI/180,L=td.barrel*TS;return{x:px+facing*Math.cos(a)*L,y:gy-17*TS-Math.sin(a)*L}}
+function aWind(c,w){c.save();c.fillStyle='rgba(20,8,16,.72)';rr(c,24,22,250,58,12);c.fill();c.font='600 26px "IBM Plex Sans KR",sans-serif';c.fillStyle='#dcb3a0';c.textBaseline='middle';c.fillText('바람',42,51);
+  const d=Math.sign(w),len=Math.abs(w)*6;c.strokeStyle='#ffd15a';c.fillStyle='#ffd15a';c.lineWidth=6;c.lineCap='round';
+  if(d){c.beginPath();c.moveTo(165,51);c.lineTo(165+d*len,51);c.stroke();c.beginPath();c.moveTo(165+d*(len+10),51);c.lineTo(165+d*(len-3),42);c.lineTo(165+d*(len-3),60);c.closePath();c.fill()}
+  c.font='600 26px "IBM Plex Mono",monospace';c.fillStyle='#fff3dd';c.textAlign='right';c.fillText(String(w),262,52);c.restore()}
+
+/* physics demo */
+const AP_T=[{n:'일반탄',gf:1,wf:1,spd:1,r:36},{n:'광자탄',gf:.55,wf:.25,spd:.82,r:26},{n:'거대탄',gf:1.15,wf:.5,spd:1,r:48},{n:'메가톤',gf:1.2,wf:.4,spd:1,r:84}];
+function drawPhys(){
+  const c=$('apCv').getContext('2d'),ang=+$('apAng').value,pow=+$('apPow').value,wind=+$('apWind').value,T=AP_T[+$('apType').value],moon=$('apMoon').checked,g=AG*(moon?.55:1);
+  $('apAngO').textContent=ang+'°';$('apPowO').textContent=pow;$('apWindO').textContent=(wind>0?'+':'')+wind;
+  const td=TANKS[+$('apType').value>=2?9:+$('apType').value===1?5:0],px=170,m=aMuzzle(px,ang,td);
+  aScene(c);aWind(c,wind);
+  const r=aSim(m.x,m.y,ang,pow,wind,T.gf,T.wf,T.spd,g);
+  let top=r.pts[0];for(const p of r.pts)if(p[1]<top[1])top=p;
+  c.strokeStyle='rgba(255,209,90,.35)';c.lineWidth=3;c.setLineDash([2,10]);c.beginPath();r.pts.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));c.stroke();c.setLineDash([]);
+  r.pts.forEach((p,i)=>{if(i%4)return;c.fillStyle=i%20===0?'#fff3dd':'#ffd15a';c.beginPath();c.arc(p[0],Math.max(6,p[1]),i%20===0?7:4.5,0,7);c.fill()});
+  if(top[1]<0){c.fillStyle='#ffd15a';c.beginPath();c.moveTo(top[0],8);c.lineTo(top[0]-12,30);c.lineTo(top[0]+12,30);c.closePath();c.fill()}
+  else{c.strokeStyle='rgba(255,243,221,.6)';c.lineWidth=2;c.setLineDash([6,6]);c.beginPath();c.moveTo(top[0],top[1]);c.lineTo(top[0],aGround(top[0]));c.stroke();c.setLineDash([]);
+    c.font='600 24px "IBM Plex Sans KR",sans-serif';c.fillStyle='#fff3dd';c.textAlign='center';c.fillText('최고점',top[0],top[1]-18)}
+  if(r.hit){const[hx,hy]=r.hit;const gr=c.createRadialGradient(hx,hy,0,hx,hy,T.r);gr.addColorStop(0,'rgba(255,250,220,.95)');gr.addColorStop(.5,'rgba(255,170,60,.7)');gr.addColorStop(1,'rgba(255,80,40,0)');
+    c.fillStyle=gr;c.beginPath();c.arc(hx,hy,T.r,0,7);c.fill();c.strokeStyle='#fff3dd';c.lineWidth=3;c.setLineDash([8,8]);c.beginPath();c.arc(hx,hy,T.r+12,0,7);c.stroke();c.setLineDash([])}
+  PotanIntro.drawTank3D(c,td,px,aGround(px),TS,1,ang,'dusk');
+  const sec=(r.f/60).toFixed(2),dist=r.hit?Math.round(r.hit[0]-m.x):null,h=Math.round(m.y-top[1]);
+  $('apOut').innerHTML=`체공 시간 <b>${sec}초</b> (${r.f}프레임)<br>날아간 거리 <b>${dist==null?'화면 밖':dist+'칸'}</b><br>최고 높이 <b>${h}칸</b>${r.hit?`<br>폭발 반경 <b>${T.r}칸</b>`:''}`;
+}
+['apAng','apPow','apWind','apType','apMoon'].forEach(id=>$(id).addEventListener('input',drawPhys));
+
+/* CPU demo */
+function runAI(fresh=true){
+  cancelAnimationFrame(aiRaf);
+  if(fresh||!aiScene){const tx=Math.round(rand(760,1290));aiScene={tx,wind:ri(-10,10)}}
+  const{tx,wind}=aiScene,me=TANKS[0],foe=TANKS[1],px=170,tgt={x:tx,y:aGround(tx)-8*TS},E=[[6,8],[3,4],[1,1]][aiDiffSel];
+  const shots=[];
+  for(let a=me.amin;a<=me.amax;a+=2)for(let p=10;p<=100;p+=3){const m=aMuzzle(px,a,me),r=aSim(m.x,m.y,a,p,wind);
+    let d=1e9;if(r.hit){d=Math.hypot(r.hit[0]-tgt.x,r.hit[1]-tgt.y);if(Math.hypot(r.hit[0]-px,r.hit[1]-aGround(px)+8)<70)d+=600}shots.push({a,p,r,d})}
+  const best=shots.reduce((b,s)=>s.d<b.d?s:b,shots[0]);
+  const fa=clamp(best.a+ri(-E[0],E[0]),me.amin,me.amax),fp=clamp(best.p+rand(-E[1],E[1]),8,100),fm=aMuzzle(px,fa,me),fr=aSim(fm.x,fm.y,fa,fp,wind);
+  const c=$('aiCv').getContext('2d');let shown=0;
+  const frame=()=>{
+    shown=Math.min(shots.length,shown+36);
+    aScene(c);aWind(c,wind);
+    c.lineWidth=2;c.strokeStyle='rgba(255,233,199,.075)';
+    for(let i=0;i<shown;i++){const pts=shots[i].r.pts;c.beginPath();for(let k=0;k<pts.length;k+=2)k?c.lineTo(pts[k][0],pts[k][1]):c.moveTo(pts[k][0],pts[k][1]);c.stroke()}
+    PotanIntro.drawTank3D(c,foe,tx,aGround(tx),TS,-1,40,'dusk');
+    c.strokeStyle='#fff3dd';c.lineWidth=3;c.beginPath();c.arc(tgt.x,tgt.y,30,0,7);c.stroke();c.beginPath();c.moveTo(tgt.x-44,tgt.y);c.lineTo(tgt.x-20,tgt.y);c.moveTo(tgt.x+20,tgt.y);c.lineTo(tgt.x+44,tgt.y);c.stroke();
+    const done=shown>=shots.length;
+    const ang=done?fa:shots[Math.max(0,shown-1)].a;
+    PotanIntro.drawTank3D(c,me,px,aGround(px),TS,1,ang,'dusk');
+    c.font='600 26px "IBM Plex Sans KR",sans-serif';c.fillStyle='#fff3dd';c.textAlign='right';c.textBaseline='middle';
+    c.fillText(done?'계산 끝':`가상 사격 ${shown} / ${shots.length}발`,AW-28,52);
+    if(done){
+      const line=(pts,col,w,dash)=>{c.strokeStyle=col;c.lineWidth=w;c.setLineDash(dash);c.beginPath();pts.forEach((q,i)=>i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1]));c.stroke();c.setLineDash([])};
+      line(best.r.pts,'#ffd15a',7,[]);line(fr.pts,'#ff8a2a',5,[16,10]);
+      if(fr.hit){c.fillStyle='#ff8a2a';c.beginPath();c.arc(fr.hit[0],fr.hit[1],14,0,7);c.fill()}
+      const miss=fr.hit?Math.round(Math.hypot(fr.hit[0]-tgt.x,fr.hit[1]-tgt.y)):null;
+      $('aiOut').innerHTML=`바람 <b>${wind>0?'+':''}${wind}</b>에서 가상 사격 <b>${shots.length}발</b><br>가장 가까운 한 발: 각도 <b>${best.a}°</b> · 파워 <b>${best.p}</b> · 오차 <b>${Math.round(best.d)}칸</b><br>실제 발사(${['쉬움','보통','어려움'][aiDiffSel]}): 각도 <b>${fa}°</b> · 파워 <b>${Math.round(fp)}</b> → ${miss==null?'<b>화면 밖</b>':`목표에서 <b>${miss}칸</b>`}`;
+    }else{$('aiOut').innerHTML=`각도 <b>${shots[shown-1].a}°</b> · 파워 <b>${shots[shown-1].p}</b> 조합까지 계산 중…`;aiRaf=requestAnimationFrame(frame)}
+  };
+  aiRaf=requestAnimationFrame(frame);
+}
+seg($('aiDiffSeg'),[['0','쉬움'],['1','보통'],['2','어려움']],String(aiDiffSel),v=>{aiDiffSel=+v;runAI(false)});
+$('aiAgain').onclick=()=>runAI(true);
+
+/* terrain mask demo */
+const MC=40,MR=16,CS=35;let mask=null,mkCrater=null,mkFall=0;
+function mkInit(){mask=[];for(let r=0;r<MR;r++){mask.push([]);for(let c=0;c<MC;c++){const top=Math.round(7+Math.sin(c*.33+.5)*2.2+Math.sin(c*.12)*1.4);mask[r].push(r>=top?1:0)}}mkCrater=null;mkFall=0}
+function mkTop(col){for(let r=0;r<MR;r++)if(mask[r][col])return r;return MR}
+let mkTank={col:9,row:null};
+function drawMask(){
+  if(!mask){mkInit();mkTank.row=mkTop(mkTank.col)}
+  const c=$('mkCv').getContext('2d');c.fillStyle='#1d0c19';c.fillRect(0,0,1400,560);
+  const digits=($('mkCv').clientWidth||0)>560;
+  c.font='600 15px "IBM Plex Mono",monospace';c.textAlign='center';c.textBaseline='middle';
+  for(let r=0;r<MR;r++)for(let col=0;col<MC;col++){const x=col*CS,y=r*CS,v=mask[r][col];
+    c.fillStyle=v?(r===mkTop(col)?'#ff9a4a':(r+col)%2?'#4a2236':'#552840'):'#2a1226';c.fillRect(x+1,y+1,CS-2,CS-2);
+    if(digits){c.fillStyle=v?'rgba(255,243,221,.55)':'rgba(255,243,221,.16)';c.fillText(v,x+CS/2,y+CS/2+1)}}
+  if(mkCrater){c.strokeStyle='#fff3dd';c.lineWidth=3;c.setLineDash([8,7]);c.beginPath();c.arc(mkCrater[0],mkCrater[1],3.3*CS,0,7);c.stroke();c.setLineDash([])}
+  const tx=mkTank.col*CS+CS/2,ty=mkTank.row*CS;
+  PotanIntro.drawTank3D(c,TANKS[0],tx,ty,2.2,1,35,'dusk');
+  if(mkFall>0){c.font='30px "Black Han Sans",sans-serif';c.lineWidth=6;c.strokeStyle='#1d0c19';c.strokeText(`낙하 ${mkFall}칸!`,tx,ty-90);c.fillStyle='#ff8a2a';c.fillText(`낙하 ${mkFall}칸!`,tx,ty-90)}
+  c.textAlign='left';c.font='600 22px "IBM Plex Sans KR",sans-serif';c.fillStyle='rgba(20,8,16,.75)';rr(c,16,14,520,44,10);c.fill();c.fillStyle='#fff3dd';c.fillText('땅 = 1, 빈칸 = 0 · 눌러서 폭발시키기',32,37);
+}
+$('mkCv').addEventListener('pointerdown',e=>{
+  const r=e.currentTarget.getBoundingClientRect(),x=(e.clientX-r.left)*1400/r.width,y=(e.clientY-r.top)*560/r.height;
+  if(!mask)mkInit();mkCrater=[x,y];
+  for(let rr2=0;rr2<MR;rr2++)for(let col=0;col<MC;col++){const cx=col*CS+CS/2,cy=rr2*CS+CS/2;if(Math.hypot(cx-x,cy-y)<3.3*CS)mask[rr2][col]=0}
+  const nr=mkTop(mkTank.col);mkFall=nr>mkTank.row?nr-mkTank.row:0;mkTank.row=Math.min(nr,MR);
+  sfx('boom',40);drawMask();
+});
+$('mkReset').onclick=()=>{mkInit();mkTank.row=mkTop(mkTank.col);drawMask()};
+addEventListener('resize',()=>{if(!$('ana').hidden&&anaCur==='world')drawMask()});
+
 $('quitYes').onclick=()=>{closeQuit();toSetup()};
 $('quitModal').addEventListener('click',e=>{if(e.target.id==='quitModal')closeQuit()});
 addEventListener('keydown',e=>{if(!$('quitModal').hidden&&e.key==='Escape')closeQuit()});
@@ -1675,7 +2078,7 @@ $('lookBack').onclick=()=>{S.look=null};
 const KEYMAP={ArrowLeft:'left',ArrowRight:'right',ArrowUp:'up',ArrowDown:'down',' ':'fire',Spacebar:'fire'};
 addEventListener('keydown',e=>{
   if(S.phase==='setup')return;
-  if(S.paused)return;
+  if(S.paused||!$('ana').hidden)return;
   const k=KEYMAP[e.key];if(k){input[k]=true;e.preventDefault()}
   if(e.key==='1')$('w0').click();if(e.key==='2')$('w1').click();
 });
